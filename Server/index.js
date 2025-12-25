@@ -17,19 +17,21 @@ const dotenv = require("dotenv");
 dotenv.config();
 const PORT = process.env.PORT || 4000;
 
+app.use(
+	cors({
+		origin:[ "http://localhost:3000",
+		         "https://study-notion-two-psi.vercel.app",
+	   ],
+		credentials:true,
+	})
+)
+
 //database connect
 database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-	cors({
-		origin:[ "http://localhost:3000",
-		         "https://study-notion-two-psi.vercel.app/",
-	   ],
-		credentials:true,
-	})
-)
+
 
 app.use(
 	fileUpload({
