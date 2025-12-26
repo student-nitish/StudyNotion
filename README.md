@@ -4,6 +4,9 @@ StudyNotion is a full-stack EdTech web application built using the MERN stack, d
 
 ---
 
+### LIVE URL = https://study-notion-two-psi.vercel.app/
+
+
 ## 🚀 Features
 
 ### 👨‍🎓 Student Features
