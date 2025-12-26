@@ -6,10 +6,18 @@ import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../services/operations/authAPI";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import OTPCountdown from "../components/core/Auth/OTPCountdown";
 
 function VerifyEmail() {
   const [otp, setOtp] = useState("");
   const { signupData, loading } = useSelector((state) => state.auth);
+  
+  const location=useLocation();
+
+  const{Yourotp}= location.state;
+
+  console.log("myotp",Yourotp);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -100,9 +108,32 @@ function VerifyEmail() {
               <RxCountdownTimer />
               Resend it
             </button>
+
           </div>
         </div>
       )}
+
+       <div className="mt-6 rounded-lg border border-yellow-300 bg-yellow-200 p-4 text-sm text-richblack-800">
+     <p className="mb-2 font-medium">
+    This is your One-Time Password (OTP)
+     </p>
+
+    <p className="mb-3 text-richblack-700">
+    Due to a temporary email delivery issue, we are unable to send the OTP to
+    your email address at the moment. Please use the code below to complete
+    your signup.
+    </p>
+
+  <div className="my-3 rounded-md bg-yellow-100 p-3 text-center text-lg font-bold tracking-widest text-yellow-800">
+    {Yourotp}
+  </div>
+
+   <OTPCountdown initialTime={120} />
+
+  <p className="text-xs text-richblack-600">
+    We are actively working to fix this issue. Thank you for your patience.
+  </p>
+            </div>
     </div>
   );
 }

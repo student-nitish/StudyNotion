@@ -185,17 +185,24 @@ const Navbar = () => {
             {
                 token===null && (
                     <Link to="/login">
-                        <button className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md'>
-                            Log in
-                        </button>
-                    </Link>
+              <button className="rounded-md border border-richblack-700 bg-richblack-800 
+                 px-3 py-1.5 text-xs 
+                sm:px-[12px] sm:py-[8px] sm:text-sm 
+                text-richblack-100">
+                      Log in
+                </button>
+               </Link>
+
                 )
                  
             }
             {
                 token === null && (
                     <Link to="/signup">
-                        <button  className='border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100 rounded-md'>
+                         <button className="rounded-md border border-richblack-700 bg-richblack-800 
+                 px-3 py-1.5 text-xs 
+                sm:px-[12px] sm:py-[8px] sm:text-sm 
+                text-richblack-100">
                             Sign Up
                         </button>
                     </Link>
